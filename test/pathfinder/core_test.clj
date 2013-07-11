@@ -10,12 +10,7 @@
             [1 1 1 1 1]])
 
 
-(defn neighbors
-  ([size xy] (neighbors [[-1 0] [1 0] [0 -1] [0 1]] size xy))
-  ([deltas size xy]
-     (filter (fn [new-xy]
-               (every? #(< -1 % size) new-xy))
-             (map #(map + xy %) deltas))))
+
 
 
 (fact (neighbors 5 [0 0]) => (just [[1 0] [0 1]]))
