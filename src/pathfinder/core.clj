@@ -25,5 +25,8 @@
 
 
 (defn min-by
-  [kw values]
-  {kw (reduce min (map #(kw %) values))})
+  [f coll]
+  (when (seq coll)
+        (reduce (fn [min this]
+                  (if (> (f min) (f this)) this min))
+                coll)))
