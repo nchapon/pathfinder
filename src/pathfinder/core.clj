@@ -22,3 +22,8 @@
   [new-cost step-cost-est size x y]
   (+ new-cost
      (estimate-cost step-cost-est size x y)))
+
+
+(defn min-by
+  [kw values]
+  {kw (reduce min (map #(kw %) values))})
