@@ -40,3 +40,28 @@
                                   [1 4] [2 4] [2 3] [2 2] [2 1] [2 0]
                                   [3 0] [4 0] [4 1] [4 2] [4 3] [4 4]]}
                            :steps 94])
+
+(def shrubbery-world [[1 1 1 2 1]
+                [1 1 1 999 1]
+                [1 1 1 999 1]
+                [1 1 1 999 1]
+                [1 1 1 1 1]])
+
+
+(fact "PathFinder A* with shrubbery world"
+  (A* [0 0] 900 shrubbery-world) =>[{:cost 9,
+                               :yxs [[0 0] [0 1] [0 2] [1 2] [2 2] [3 2]
+                                     [4 2] [4 3] [4 4]]}
+                              :steps 134])
+
+(def bunny-world [[1 1 1 2 1]
+                [1 1 1 999 1]
+                [1 1 1 999 1]
+                [1 1 1 999 1]
+                [1 1 1 666 1]])
+
+(fact "PathFinder A* with shrubbery world"
+  (A* [0 0] 900 bunny-world) =>[{:cost 10,
+                               :yxs [[0 0] [0 1] [0 2] [0 3] [0 4] [1 4]
+                                     [2 4] [3 4] [4 4]]}
+                              :steps 132])
